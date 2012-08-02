@@ -134,7 +134,7 @@ class Configuration implements ConfigurationInterface
                             ->canBeUnset()
                             ->children()
                                 ->scalarNode('callback_param')->defaultValue('callback')->end()
-                                ->scalarNode('callback_filter')->defaultValue('/[a-z0-9]+/i')->end()
+                                ->scalarNode('callback_filter')->defaultValue('/[a-z0-9_]+/i')->end()
                             ->end()
                         ->end()
                     ->end()
