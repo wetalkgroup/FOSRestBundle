@@ -130,6 +130,13 @@ class Configuration implements ConfigurationInterface
                             ->end()
                         ->end()
                         ->scalarNode('failed_validation')->defaultValue(Codes::HTTP_BAD_REQUEST)->end()
+                        ->arrayNode('jsonp_handler')
+                            ->canBeUnset()
+                            ->children()
+                                ->scalarNode('callback_param')->defaultValue('callback')->end()
+                                ->scalarNode('callback_filter')->defaultValue('/[a-z]+/i')->end()
+                            ->end()
+                        ->end()
                     ->end()
                 ->end()
             ->end();
