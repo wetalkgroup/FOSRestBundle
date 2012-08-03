@@ -232,8 +232,18 @@ as well as the filter pattern that validates if the provided callback is valid o
 fos_rest:
     view:
         jsonp_handler:
-            callback_filter:      callback
-            callback_param:       /a-z+/i
+           callback_param:       mycallback
+           callback_filter:      /^[a-z0-9_]+$/i
+```
+
+Finally the filter can also be disabled by setting it to false.
+
+```yaml
+# app/config/config.yml
+fos_rest:
+    view:
+        jsonp_handler:
+            callback_param:       false
 ```
 
 ## That was it!

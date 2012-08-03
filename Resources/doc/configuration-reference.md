@@ -40,6 +40,9 @@ fos_rest:
             name:                 []
         view_response_listener:  false
         failed_validation:    400
+        jsonp_handler:
+            callback_param:       callback
+            callback_filter:      /(^[a-z0-9_]+$)|(^YUI\.Env\.JSONP\._[0-9]+$)/i
     exception:
         codes:
 
