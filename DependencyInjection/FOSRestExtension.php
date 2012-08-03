@@ -17,6 +17,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use Symfony\Component\DependencyInjection\DefinitionDecorator;
 use Symfony\Component\DependencyInjection\Definition;
+use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\HttpKernel\Kernel;
 
 use FOS\Rest\Util\Codes;
@@ -122,7 +123,7 @@ class FOSRestExtension extends Extension
         if (!empty($config['view']['jsonp_handler'])) {
             $handler = new DefinitionDecorator($config['service']['view_handler']);
 
-            $jsonpHandler = $container->getDefinition($this->getAlias().'.view_handler.jsonp');
+            $jsonpHandler = new Reference($this->getAlias().'.view_handler.jsonp');
             $handler->addMethodCall('registerHandler', array('jsonp', array($jsonpHandler, 'createResponse')));
             $container->setDefinition($this->getAlias().'.view_handler', $handler);
 
