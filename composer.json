@@ -1,5 +1,5 @@
 {
-    "name": "friendsofsymfony/rest-bundle",
+    "name": "wetalkgroup/rest-bundle",
     "type": "symfony-bundle",
     "description": "This Bundle provides various tools to rapidly develop RESTful API's with Symfony2",
     "keywords": ["rest"],
